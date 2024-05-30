@@ -2,13 +2,13 @@ const { app } = require('@azure/functions');
 
 const cosmosInput = input.cosmosDB({
     databaseName: 'DemoDatabase',
-    containerName: 'DemoContainer1',
+    containerName: 'Items',
     connection: 'CosmosDB',
     sqlQuery: "select * from c"
 });
 
 
-app.http('getItems', {
+app.http('laborFunction', {
     methods: ['GET'],
     authLevel: 'anonymous',
     extraInputs: [cosmosInput],
@@ -20,4 +20,5 @@ app.http('getItems', {
             status: 200
         };
     }
+
 });
