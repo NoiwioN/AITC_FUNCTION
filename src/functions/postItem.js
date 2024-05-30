@@ -17,7 +17,7 @@ app.http('postItem', {
         item.id=(Math.random()+1).toString(36)
         context.extraOutputs.set(cosmosOutput,item)
         return {
-            body: JSON.stringify(item), status:201
+            body: JSON.stringify(item), status:200
          };
     }
 });
