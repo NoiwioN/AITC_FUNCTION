@@ -1,4 +1,4 @@
-const { app } = require('@azure/functions');
+const { app, output } = require('@azure/functions');
 
 const cosmosOutput = output.cosmosDB({
     databaseName: 'DemoDatabase',
@@ -17,9 +17,7 @@ app.http('postItem', {
         item.id=(Math.random()+1).toString(36)
         context.extraOutputs.set(cosmosOutput,item)
         return {
-            id:item.id,
-            title: item.title,
-            text: item.text
+            body: JSON.stringify(item), status:201
          };
     }
 });
