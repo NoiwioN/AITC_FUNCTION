@@ -8,7 +8,7 @@ const cosmosInput = input.cosmosDB({
 });
 
 
-app.http('laborFunction', {
+app.http('getItems', {
     methods: ['GET'],
     authLevel: 'anonymous',
     extraInputs: [cosmosInput],
@@ -20,5 +20,4 @@ app.http('laborFunction', {
             status: 200
         };
     }
-
 });
