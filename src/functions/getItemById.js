@@ -14,7 +14,6 @@ app.http('getItemById', {
     extraInputs:[cosmosInput],
     handler: async (request, context) => {
         const item = context.extraInputs.get(cosmosInput)
-
         return { body: JSON.stringify(item),status:200 }
     }
 });
